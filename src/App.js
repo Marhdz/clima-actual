@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import moment from 'moment';
 
+// API KEY
+const key = "c17a5d048eea0b6bf0094ceda2925196";
+
 class App extends Component {
   state = {
     lat: undefined,
@@ -22,7 +25,7 @@ class App extends Component {
   }
   
   getWeather = async (latitude, longitude) => { 
-    const api_call = await fetch(`//api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`);
+    const api_call = await fetch(`//api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=metric`);
     const data = await api_call.json();    
     this.setState({
       lat: latitude,
